@@ -7,13 +7,13 @@
     "test": "test"
   },
   "files": [
-    "lib/",
-    "stub-azure-function-context.js"
+    "lib/"
   ],
   "scripts": {
-    "lint": "eslint -c .eslintrc.json --ignore-path .eslintignore ./",
-    "lint-fix": "eslint -c .eslintrc.json --ignore-path .eslintignore ./ --fix",
-    "test": "mocha"
+    "build": "tsc",
+    "lint": "eslint -c .eslintrc.json --ignore-path .eslintignore ./ --ext .ts",
+    "lint-fix": "npm run lint -- --fix",
+    "test": "mocha -r ts-node/register test/**/*.{spec,int}.ts"
   },
   "repository": {
     "type": "git",
@@ -34,15 +34,23 @@
   },
   "homepage": "https://github.com/willmorgan/stub-azure-function-context#readme",
   "devDependencies": {
+    "@tsconfig/node10": "^1.0.7",
+    "@types/node": "^14.14.25",
+    "@types/uuid": "^8.3.0",
+    "@typescript-eslint/eslint-plugin": "^4.15.0",
+    "@typescript-eslint/parser": "^4.15.0",
     "chai": "^4.1.2",
-    "eslint": "^7.18.0",
+    "eslint": "^7.19.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-security": "^1.4.0",
     "mocha": "^8.2.1",
-    "sinon": "^9.2.3"
+    "sinon": "^9.2.3",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.5"
   },
   "dependencies": {
+    "@azure/functions": "^1.2.3",
     "moment": "^2.24.0",
     "uuid": "^8.3.2"
   }

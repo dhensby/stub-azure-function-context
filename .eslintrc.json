@@ -1,4 +1,14 @@
 {
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint",
+    "security"
+  ],
+  "extends": [
+    "airbnb-base/legacy",
+    "plugin:security/recommended"
+  ],
   "parserOptions": {
     "ecmaVersion": 2018,
     "ecmaFeatures": {
@@ -20,13 +30,6 @@
     "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["context"] } ],
     "no-plusplus": ["off"],
     "quote-props": ["error", "consistent-as-needed"]
-  },
-  "plugins": [
-    "security"
-  ],
-  "extends": [
-    "airbnb-base/legacy",
-    "plugin:security/recommended"
-  ]
+  }
 
 }
